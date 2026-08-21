@@ -5,7 +5,7 @@
   "scripts": {
     "install:all": "npm ci --prefix web && npm ci --prefix studio",
     "typecheck": "npm run typecheck:web && npm run typecheck:studio",
-    "typecheck:web": "tsc --noEmit --project web/tsconfig.json",
+    "typecheck:web": "npm run typecheck --prefix web",
     "typecheck:studio": "tsc --noEmit --project studio/tsconfig.json",
     "lint": "npm run lint:web && npm run lint:studio",
     "lint:web": "npm run lint --prefix web",
