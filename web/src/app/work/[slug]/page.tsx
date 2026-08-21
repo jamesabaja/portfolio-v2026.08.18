@@ -147,8 +147,12 @@ export default async function CaseStudyPage({ params }: Props) {
               eyebrow={EYEBROWS.decisions}
               title={keyDecisions?.title}
             >
-              <Body value={keyDecisions?.introduction} />
-              <Decisions decisions={keyDecisions?.decisions} />
+              {/* Same beat spacing as discovery: the intro is its own beat, so
+                  it needs air before the first decision. */}
+              <div className="flex w-full flex-col gap-10">
+                <Body value={keyDecisions?.introduction} />
+                <Decisions decisions={keyDecisions?.decisions} />
+              </div>
             </CaseStudySection>
           ) : null}
         </div>
