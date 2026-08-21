@@ -1,0 +1,9 @@
+node_modules
+web/.next
+web/next-env.d.ts
+web/sanity.types.ts
+studio/dist
+studio/.sanity
+studio/schema.json
+package-lock.json
+*.tsbuildinfo

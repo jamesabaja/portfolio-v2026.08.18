@@ -11,7 +11,8 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "typegen": "sanity schemas extract --force && sanity typegen generate",
-    "deploy-schema": "sanity schemas deploy"
+    "deploy-schema": "sanity schemas deploy",
+    "lint": "eslint ."
   },
   "keywords": [
     "sanity"

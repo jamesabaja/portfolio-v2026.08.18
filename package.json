@@ -1,0 +1,27 @@
+{
+  "name": "portfolio-v2026-08-18",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "install:all": "npm ci --prefix web && npm ci --prefix studio",
+    "typecheck": "npm run typecheck:web && npm run typecheck:studio",
+    "typecheck:web": "tsc --noEmit --project web/tsconfig.json",
+    "typecheck:studio": "tsc --noEmit --project studio/tsconfig.json",
+    "lint": "npm run lint:web && npm run lint:studio",
+    "lint:web": "npm run lint --prefix web",
+    "lint:studio": "npm run lint --prefix studio",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run typecheck && npm run lint",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,mjs,cjs,json,md,css,yml,yaml}": "prettier --write"
+  }
+}
