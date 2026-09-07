@@ -10,7 +10,7 @@ const STATS = [
 
 export function SocialProof() {
   return (
-    <section className="flex w-full flex-col items-stretch justify-between gap-6 bg-muted-olive px-6 py-10 sm:px-10 md:flex-row md:items-center md:gap-10 lg:px-20">
+    <section className="flex w-full flex-col items-stretch justify-between gap-6 bg-cream px-6 py-10 sm:px-10 md:flex-row md:items-center md:gap-10 lg:px-20">
       {STATS.map((stat, index) => (
         <Fragment key={stat.label}>
           {/* Hairline separators only exist once the stats sit side by side. */}
@@ -19,7 +19,7 @@ export function SocialProof() {
               aria-hidden
               data-reveal="fade"
               style={stagger(index)}
-              className="hidden w-px self-stretch bg-sand md:block"
+              className="hidden w-px self-stretch bg-warm-gray md:block"
             />
           ) : null}
 
@@ -28,8 +28,8 @@ export function SocialProof() {
             style={stagger(index)}
             className="flex shrink-0 flex-col items-start gap-1"
           >
-            <p className="text-xl leading-7 font-semibold text-cream">{stat.label}</p>
-            <p className="text-base leading-6 text-soft-beige">{stat.detail}</p>
+            <p className="text-xl leading-7 font-semibold text-espresso">{stat.label}</p>
+            <p className="text-base leading-6 text-warm-gray">{stat.detail}</p>
           </div>
         </Fragment>
       ))}

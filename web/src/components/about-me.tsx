@@ -21,6 +21,24 @@ const SOCIAL_LINKS = [
   },
 ] as const;
 
+const EXPERIENCE = [
+  {
+    role: "Sr. Full Stack Developer",
+    company: "Global eyewear retailer \u{1F1E6}\u{1F1FA}",
+    period: "2025 - Now",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "B2B sales enablement platform \u{1F1EC}\u{1F1E7}",
+    period: "2023 - 2025",
+  },
+  {
+    role: "IT Manager / Developer",
+    company: "Healthcare technology provider \u{1F1F5}\u{1F1ED}",
+    period: "2019 - 2023",
+  },
+] as const;
+
 export function AboutMe() {
   // Each link is dropped rather than rendered dead while its env var is blank,
   // matching how the navbar and hero handle the contact address.
@@ -63,8 +81,29 @@ export function AboutMe() {
 
           <div aria-hidden data-reveal="fade" style={stagger(3)} className="h-px w-14 bg-sand" />
 
+          {/* Subgrid keeps the three columns aligned across rows on desktop; on
+              mobile each entry stacks with the period promoted to an eyebrow. */}
+          <ul
+            data-reveal
+            style={stagger(4)}
+            className="flex w-full flex-col gap-4 md:grid md:grid-cols-[auto_1fr_auto] md:gap-x-6 md:gap-y-2"
+          >
+            {EXPERIENCE.map(({ role, company, period }) => (
+              <li
+                key={role}
+                className="flex flex-col md:col-span-3 md:grid md:grid-cols-subgrid md:items-baseline"
+              >
+                <span className="text-lg leading-7 text-espresso">{role}</span>
+                <span className="text-lg leading-7 text-warm-gray">{company}</span>
+                <span className="order-first mb-1 text-xs leading-4 font-medium tracking-eyebrow text-warm-gray uppercase md:order-none md:mb-0 md:text-right md:text-lg md:leading-7 md:font-normal md:tracking-normal md:whitespace-nowrap md:normal-case">
+                  {period}
+                </span>
+              </li>
+            ))}
+          </ul>
+
           {links.length > 0 ? (
-            <ul data-reveal style={stagger(4)} className="flex items-start gap-4">
+            <ul data-reveal style={stagger(5)} className="flex items-start gap-4">
               {links.map(({ href, label, icon: Icon, external }) => (
                 <li key={label}>
                   <a
