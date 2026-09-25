@@ -2,9 +2,10 @@ import { stegaClean } from "next-sanity";
 import type { Metadata } from "next";
 
 import { ContactCta } from "@/components/contact-cta";
-import { CaseStudyCard } from "@/components/work/case-study-card";
+// Featured section temporarily hidden; it duplicated the first entry in the list below.
+// import { CaseStudyCard } from "@/components/work/case-study-card";
 import { CaseStudyList } from "@/components/work/case-study-list";
-import { byFeaturedOrder } from "@/lib/case-studies";
+// import { byFeaturedOrder } from "@/lib/case-studies";
 import { sanityFetch } from "@/sanity/lib/live";
 import { CASE_STUDIES_QUERY } from "@/sanity/lib/queries";
 
@@ -23,9 +24,9 @@ export default async function WorkPage() {
 
   /* One featured entry only: the lowest `featuredOrder` among those explicitly
      marked featured. Unordered entries sort last rather than winning by accident. */
-  const featured = caseStudies
-    .filter((caseStudy) => caseStudy.portfolioSettings?.featured)
-    .sort(byFeaturedOrder)[0];
+  // const featured = caseStudies
+  //   .filter((caseStudy) => caseStudy.portfolioSettings?.featured)
+  //   .sort(byFeaturedOrder)[0];
 
   const industries = [
     ...new Set(
@@ -51,6 +52,7 @@ export default async function WorkPage() {
           </p>
         </div>
 
+        {/* Featured section temporarily hidden.
         {featured ? (
           <section data-reveal className="flex w-full flex-col items-start gap-6">
             <p className="text-xs leading-4 font-medium tracking-eyebrow text-warm-gray uppercase">
@@ -59,6 +61,7 @@ export default async function WorkPage() {
             <CaseStudyCard caseStudy={featured} />
           </section>
         ) : null}
+        */}
 
         <section data-reveal className="flex w-full flex-col items-start gap-6">
           <p className="text-xs leading-4 font-medium tracking-eyebrow text-warm-gray uppercase">
